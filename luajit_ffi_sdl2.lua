@@ -1,5 +1,5 @@
 ffi = require 'ffi'
-sdl2 = ffi.load("SDL2")
+sdl = ffi.load("SDL2")
 
 local sdl_dir = './'
 
@@ -26,8 +26,8 @@ for name in string.gmatch(names, '%S+') do
   sdl_lua(name .. '.lua')
 end
 
-sdl2.SDL_Init(sdl2.SDL_INIT_EVERYTHING)
+sdl.SDL_Init(sdl.SDL_INIT_EVERYTHING)
 local platform = ""
-platform = sdl2.SDL_GetPlatform()
+platform = sdl.SDL_GetPlatform()
 print(ffi.string(platform))
-sdl2.SDL_Quit()
+sdl.SDL_Quit()
