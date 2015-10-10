@@ -11,9 +11,3 @@ enum {
         (SDL_INIT_TIMER | SDL_INIT_AUDIO | SDL_INIT_VIDEO | SDL_INIT_JOYSTICK | 
          SDL_INIT_HAPTIC | SDL_INIT_GAMECONTROLLER | SDL_INIT_NOPARACHUTE )
 };
-
-int SDL_Init(Uint32 flags);
-int SDL_InitSubSystem(Uint32 flags);
-void SDL_QuitSubSystem(Uint32 flags);
-Uint32 SDL_WasInit(Uint32 flags);
-void SDL_Quit(void);
