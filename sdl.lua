@@ -25,16 +25,24 @@ end
 sdl_h(ffi_dir .. "ffi_sdl.h")
 sdl_h(ffi_dir .. "ffi_sdl_shape.h")
 sdl_h(ffi_dir .. "ffi_sdl_flags.h")
---sdl_lua("ffi_sdl_hints.lua")
+-- TODO sdl_lua("ffi_sdl_hints.lua")
 
+-- create package
 local sdl = {}
-local mt = getmetatable(sdl2)
-text = readfile('ffi_sdl_index.txt')
-for sdl_name in text:gmatch("%S+") do
-  if sdl_name:sub(1, 1) ~= '#' then
+-- get all exported function names
+local sdl_names = readfile('ffi_sdl_index.txt')
+-- bind each name stripped of 'SDL_' prefix with sdl2 function
+local mt_sdl2 = getmetatable(sdl2)
+for sdl_name in sdl_names:gmatch("%S+") do
+  if sdl_name:sub(1, 1) ~= '#' then -- skip commented lines
     name = sdl_name:gsub("SDL_", "")
-    rawset(sdl, name, mt.__index(sdl2, sdl_name))
+    rawset(sdl, name, mt_sdl2.__index(sdl2, sdl_name))
   end
 end
+-- search in sdl2 symbols not found in sdl
+local mt_sdl = { __index = function (t, k)
+  return mt_sdl2.__index(sdl2, k) end
+}
+setmetatable(sdl, mt_sdl)
 
 return sdl
