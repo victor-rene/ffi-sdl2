@@ -1,4 +1,4 @@
-bash pp_clang.sh "./SDL/SDL.h" > _tmp1
+bash pp_clang.sh $1 > _tmp1
 python functions.py _tmp1 > _tmp2
-python compare.py "SDL_Functions.txt" _tmp2 > "SDL_Functions_Diff.txt"
+python compare.py $2 _tmp2
 rm _tmp*

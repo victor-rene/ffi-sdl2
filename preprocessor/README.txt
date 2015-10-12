@@ -1,1 +1,0 @@
-bash pp_clang.sh "SDL_PATH/SDL.h" | python extract.py > ffi_sdl.txt
