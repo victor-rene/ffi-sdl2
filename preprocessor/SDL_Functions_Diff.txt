@@ -1,0 +1,7 @@
+# From depends22_x86, on SDL2.dll, october 2015
+SDL_CreateShapedWindow
+SDL_DYNAPI_entry
+SDL_GetShapedWindowMode
+SDL_GetWindowWMInfo
+SDL_IsShapedWindow
+SDL_SetWindowShape
