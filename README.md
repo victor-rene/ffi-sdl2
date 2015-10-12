@@ -25,3 +25,10 @@ From my research, I would say luajit-ffi is the best option:
 * simplicity
 * flexibility
 * performance
+
+Usage
+-----
+The preprocessor projet contains scripts to extract defintions found on the SDL2
+wiki: https://wiki.libsdl.org/FrontPage
+
+The luajit project is just for testing.
